@@ -13,9 +13,9 @@ public class Main {
             scanner.nextLine(); // Consumir el salto de línea
 
             switch (opcion) {
-                // case 1:
-                //     convertirLongitud(scanner);
-                //     break;
+                case 1:
+                    convertirLongitud(scanner);
+                    break;
                 // case 2:
                 //     convertirTemperatura(scanner);
                 //     break;
@@ -42,7 +42,7 @@ public class Main {
 
     private static void mostrarMenu() {
         System.out.println("\n**Calculadora de conversiones**");
-        // System.out.println("1. Longitud");
+        System.out.println("1. Longitud");
         // System.out.println("2. Temperatura");
         // System.out.println("3. Peso");
         // System.out.println("4. Datos");
@@ -51,6 +51,74 @@ public class Main {
         System.out.println("0. Salir");
         System.out.print("Seleccione una opción: ");
     }
+
+    // Longitud
+    // ---------------------------------------------
+    private static void convertirLongitud(Scanner scanner) {
+        System.out.println("\n**Conversión de longitud**");
+        System.out.println("1. Metros a Pies");
+        System.out.println("2. Pies a Metros");
+        System.out.println("3. Centímetros a Pulgadas");
+        System.out.println("4. Pulgadas a Centímetros");
+        System.out.println("0. Regresar al menú principal");
+        System.out.print("Seleccione una opción: ");
+
+        int opcionLongitud = scanner.nextInt();
+        scanner.nextLine();
+        switch (opcionLongitud) {
+            case 1:
+                convertirMetrosAPies(scanner);
+                break;
+            case 2:
+                convertirPiesAMetros(scanner);
+                break;
+            case 3:
+                convertirCentimetrosAPulgadas(scanner);
+                break;
+            case 4:
+                convertirPulgadasACentimetros(scanner);
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("Opción no válida. Intente de nuevo.");
+        }
+    }
+
+    private static void convertirMetrosAPies(Scanner scanner){
+        System.out.println("Ingrese la cantidad de metros: ");
+        double metros = scanner.nextDouble();
+        scanner.nextLine();
+        double pies = metros * 3.28084;
+        System.out.println(metros + " metros equivalen a " + pies + "pies. ");
+    }
+
+    private static void convertirPiesAMetros(Scanner scanner) {
+        System.out.print("Ingrese la cantidad de pies: ");
+        double pies = scanner.nextDouble();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        double metros = pies / 3.28084;
+        System.out.println(pies + " pies equivalen a " + metros + " metros.");
+
+    }
+
+    private static void convertirCentimetrosAPulgadas(Scanner scanner) {
+        System.out.println("Ingrese la cantidad de centimetros: ");
+        double centimetros = scanner.nextDouble();
+        scanner.nextLine();
+        double pulgadas = centimetros / 2.54;
+        System.out.println(centimetros + " centimetros equivalen a " + pulgadas + " pulgadas.");
+    }
+
+    private static void convertirPulgadasACentimetros(Scanner scanner) {
+        System.out.println("Ingrese la cantidad de pulgadas: ");
+        double pulgadas = scanner.nextDouble();
+        scanner.nextLine();
+        double centimetros = pulgadas * 2.54;
+        System.out.println(pulgadas + " pulgadas equivalen a " + centimetros + "centimetros.");
+    }
+    
 
     // Tiempo
     // -----------------------------------------------------------------------------
